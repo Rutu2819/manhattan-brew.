@@ -1,0 +1,320 @@
+/* ---------- Page shell ---------- */
+.mb-acc {
+  min-height: 100vh;
+  padding: 32px 20px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--mb-cream, #f6ead8);
+  background:
+    radial-gradient(90% 60% at 50% 0%, rgba(110, 60, 160, 0.45), transparent 70%),
+    var(--mb-espresso, #2a1712);
+  font-family: 'Manrope', system-ui, sans-serif;
+}
+
+.mb-acc-head h1 {
+  margin: 0 0 22px;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 22px rgba(255, 190, 120, 0.35);
+}
+
+/* ---------- Profile ---------- */
+.mb-acc-profile,
+.mb-acc-guest {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.mb-acc-avatar {
+  display: grid;
+  place-items: center;
+  width: 118px;
+  height: 118px;
+  font-size: 3.6rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.3), rgba(120, 70, 170, 0.4));
+  border: 3px solid var(--mb-gold, #e8a33d);
+  box-shadow: 0 0 34px rgba(232, 163, 61, 0.45), 0 10px 26px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Avatar picker ---------- */
+.mb-acc-picker {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.mb-acc-pick {
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+  line-height: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.14);
+  transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mb-acc-pick:hover {
+  transform: translateY(-3px) scale(1.08);
+}
+
+.mb-acc-pick.is-active {
+  border-color: var(--mb-gold, #e8a33d);
+  background: rgba(232, 163, 61, 0.18);
+  box-shadow: 0 0 16px rgba(232, 163, 61, 0.55);
+}
+
+.mb-acc-pick:focus-visible,
+.mb-acc-toggle:focus-visible,
+.mb-acc-star:focus-visible {
+  outline: 3px solid var(--mb-gold, #e8a33d);
+  outline-offset: 3px;
+}
+
+/* ---------- Name row ---------- */
+.mb-acc-name-row {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.mb-acc-name {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  text-align: center;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--mb-cream, #f6ead8);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mb-acc-name:focus {
+  border-color: var(--mb-gold, #e8a33d);
+  box-shadow: 0 0 0 3px rgba(232, 163, 61, 0.25);
+}
+
+.mb-acc-save,
+.mb-acc-action {
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 999px;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: var(--mb-espresso, #2a1712);
+  background: var(--mb-gold, #e8a33d);
+  box-shadow: 0 0 18px rgba(232, 163, 61, 0.4);
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.mb-acc-save:hover:not(:disabled),
+.mb-acc-action:hover {
+  transform: translateY(-2px);
+}
+
+.mb-acc-save:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.mb-acc-guest p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* ---------- Accordion cards ---------- */
+.mb-acc-menu {
+  width: 100%;
+  max-width: 420px;
+  display: grid;
+  gap: 12px;
+}
+
+.mb-acc-item {
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mb-acc-item.is-open {
+  border-color: var(--mb-gold, #e8a33d);
+  box-shadow: 0 0 20px rgba(232, 163, 61, 0.28), 0 8px 22px rgba(0, 0, 0, 0.25);
+}
+
+.mb-acc-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.mb-acc-chevron {
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.mb-acc-item.is-open .mb-acc-chevron {
+  transform: rotate(90deg);
+}
+
+.mb-acc-panel {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+}
+
+.mb-acc-item.is-open .mb-acc-panel {
+  max-height: 640px;
+  opacity: 1;
+  overflow-y: auto;
+}
+
+.mb-acc-panel-inner {
+  padding: 4px 18px 18px;
+  text-align: left;
+}
+
+.mb-acc-panel-inner textarea {
+  width: 100%;
+  min-height: 84px;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--mb-cream, #f6ead8);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  resize: vertical;
+  outline: none;
+}
+
+.mb-acc-panel-inner textarea::placeholder {
+  color: rgba(246, 234, 216, 0.45);
+}
+
+.mb-acc-panel-inner textarea:focus {
+  border-color: var(--mb-gold, #e8a33d);
+  box-shadow: 0 0 0 3px rgba(232, 163, 61, 0.25);
+}
+
+.mb-acc-action {
+  margin-top: 12px;
+}
+
+.mb-acc-thanks {
+  margin: 10px 0 0;
+  color: var(--mb-gold, #e8a33d);
+  font-weight: 600;
+}
+
+/* ---------- FAQ ---------- */
+.mb-acc-faq {
+  margin-top: 8px;
+}
+
+.mb-acc-faq-q {
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.mb-acc-faq-q:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.mb-acc-faq-a {
+  margin: 6px 4px 0;
+  padding: 4px 10px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  opacity: 0.85;
+}
+
+/* ---------- Rating ---------- */
+.mb-acc-stars {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding-top: 8px;
+}
+
+.mb-acc-star {
+  padding: 0 2px;
+  font-size: 2rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.25);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.15s ease;
+}
+
+.mb-acc-star:hover {
+  transform: scale(1.15);
+}
+
+.mb-acc-star.filled {
+  color: var(--mb-gold, #e8a33d);
+  text-shadow: 0 0 12px rgba(232, 163, 61, 0.6);
+}
+
+@media (max-width: 380px) {
+  .mb-acc-name-row {
+    flex-direction: column;
+  }
+  .mb-acc-save {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mb-acc-pick,
+  .mb-acc-panel,
+  .mb-acc-chevron,
+  .mb-acc-save {
+    transition: none;
+  }
+}

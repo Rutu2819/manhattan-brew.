@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Fraunces:ital,opsz,wght@1,9..144,500&display=swap");
+
+/* ---------- Hero ---------- */
+.mh {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 5.5rem 1rem 4.5rem;
+  min-height: 350px;
+  background:
+    radial-gradient(ellipse 55% 80% at 50% 0%, color-mix(in srgb, var(--c1) 85%, white) 0%, transparent 70%),
+    linear-gradient(180deg, var(--c1) 0%, var(--c2) 60%, #1e110d 100%);
+  animation: mh-bg 0.8s ease both;
+}
+
+/* Title: letters drop in one by one. This is the page's single big moment. */
+.mh h1 {
+  position: relative;
+  margin: 0;
+  font-family: "Oswald", Impact, sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.6rem, 8vw, 5.5rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 28px color-mix(in srgb, var(--c1) 60%, white);
+}
+.mh h1 span {
+  display: inline-block;
+  animation: mh-drop 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+  animation-delay: calc(var(--n) * 45ms + 100ms);
+}
+.mh-tag {
+  position: relative;
+  margin: 1rem 0 0;
+  font: italic 500 1.2rem "Fraunces", Georgia, serif;
+  color: #ffffffd9;
+  animation: mh-fade 0.6s 0.6s both;
+}
+.mh-count {
+  position: relative;
+  display: inline-block;
+  margin: 1rem 0 0;
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  background: #00000033;
+  color: #ffffffcc;
+  font-size: 0.9rem;
+  animation: mh-fade 0.6s 0.75s both;
+}
+
+/* Floating icons that match the counter (beans, leaves, lemons, bubbles...) */
+.mh-float { position: absolute; inset: 0; pointer-events: none; }
+.mh-float span {
+  position: absolute;
+  left: var(--x);
+  bottom: -2.5rem;
+  font-size: var(--s);
+  opacity: 0;
+  animation: mh-rise var(--d) linear infinite;
+  animation-delay: var(--w);
+  filter: drop-shadow(0 4px 6px #0005);
+}
+
+/* ---------- Switcher ---------- */
+.mr {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0.8rem 1rem;
+  justify-content: center;
+  background: #1e110dd9;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #ffffff14;
+}
+.mr a {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #ffffff22;
+  color: #d9c7ba;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s;
+}
+.mr a:hover { color: #fff; border-color: var(--dot); transform: translateY(-2px); }
+.mr a.on { background: var(--dot); border-color: var(--dot); color: #fff; font-weight: 700; }
+.mr a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* ---------- Motion ---------- */
+@keyframes mh-drop { from { opacity: 0; transform: translateY(-40px) rotate(-8deg); } to { opacity: 1; transform: none; } }
+@keyframes mh-fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes mh-bg { from { filter: saturate(0.4) brightness(0.7); } to { filter: none; } }
+@keyframes mh-rise {
+  0%   { opacity: 0; transform: translateY(0) rotate(0deg); }
+  15%  { opacity: 0.85; }
+  85%  { opacity: 0.6; }
+  100% { opacity: 0; transform: translateY(-380px) rotate(260deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mh *, .mh, .mr a { animation: none !important; transition: none !important; }
+  .mh-float span { opacity: 0.35; bottom: 20%; }
+}
+@media (max-width: 560px) { .mr { justify-content: flex-start; } }

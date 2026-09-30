@@ -1,0 +1,322 @@
+.mb-cf {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+  min-height: 100vh;
+  background: var(--mb-cream);
+}
+
+.mb-back-link-dark {
+  color: var(--mb-espresso);
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.mb-cf-bot {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.mb-cf-avatar {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--mb-espresso);
+  color: var(--mb-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mb-display);
+  font-weight: 900;
+  font-size: 0.8rem;
+}
+
+.mb-cf-bot p {
+  background: #fff;
+  border-radius: 14px;
+  padding: 0.8rem 1.1rem;
+  margin: 0;
+  max-width: 80%;
+}
+
+.mb-cf-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 2rem 3rem;
+}
+
+.mb-cf-chip {
+  background: #fff;
+  border: 1.5px solid var(--mb-cream-dim);
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--mb-body);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.mb-cf-chip-active {
+  background: var(--mb-espresso);
+  color: var(--mb-cream);
+  border-color: var(--mb-espresso);
+}
+
+.mb-cf-results {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 420px;
+  margin: 1.5rem 0;
+}
+
+.mb-cf-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--mb-cream-dim);
+}
+
+.mb-cf-card-top {
+  color: var(--mb-cream);
+  font-family: var(--mb-display);
+  font-weight: 700;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.mb-cf-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 1rem 0;
+  font-size: 0.9rem;
+  color: var(--mb-espresso);
+}
+
+.mb-cf-price {
+  font-family: var(--mb-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--mb-brick-deep);
+  padding: 0.5rem 1rem 0;
+  margin: 0;
+}
+
+.mb-cf-tagline {
+  font-size: 0.8rem;
+  color: #6b5c4d;
+  padding: 0.3rem 1rem 1rem;
+  margin: 0;
+}
+
+.mb-cf-restart {
+  background: var(--mb-brick);
+  color: var(--mb-cream);
+  font-family: var(--mb-display);
+  font-weight: 700;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.mb-cf-mood-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.75rem;
+  margin: 0 0 2rem 3rem;
+}
+
+.mb-cf-mood-card {
+  background: #fff;
+  border: 1.5px solid var(--mb-cream-dim);
+  border-radius: 14px;
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  font-family: var(--mb-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--mb-espresso);
+}
+
+.mb-cf-mood-emoji {
+  font-size: 1.8rem;
+}
+
+.mb-cf-mood-active {
+  background: var(--mb-espresso);
+  color: var(--mb-cream);
+  border-color: var(--mb-espresso);
+}
+
+.mb-cf-add-combo {
+  background: var(--mb-espresso);
+  color: var(--mb-cream);
+  font-family: var(--mb-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  width: 100%;
+}
+.mb-cf-reason {
+  font-size: 0.9rem;
+  color: var(--mb-espresso);
+  padding: 0 1rem 1rem;
+  margin: 0;
+}
+
+.mb-cf-restart {
+  align-self: center;
+}
+.mb-combo-images {
+  display: grid;
+  gap: 6px;
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.mb-combo-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mb-combo-images--1 { grid-template-columns: 1fr; }
+.mb-combo-images--2 { grid-template-columns: 1fr 1fr; }
+.mb-combo-images--3 {
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.mb-combo-images--3 img:first-child { grid-row: 1 / span 2; }
+.mb-combo-images--4 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.mb-cf-add-combo {
+  padding: 0.95rem 2.2rem;
+  font-size: 1.05rem;
+}
+/* ---------- Typing effect + light styling ---------- */
+
+/* each AI message row pops in when it appears */
+.mb-cf-bot {
+  animation: mb-cf-in 0.3s ease-out;
+}
+
+/* bouncing dots while the AI is "thinking" */
+.mb-cf-dots {
+  display: inline-flex;
+  gap: 5px;
+  padding: 4px 0;
+}
+.mb-cf-dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b8956a;
+  animation: mb-cf-bounce 1s infinite ease-in-out;
+}
+.mb-cf-dots i:nth-child(2) { animation-delay: 0.15s; }
+.mb-cf-dots i:nth-child(3) { animation-delay: 0.3s; }
+
+/* blinking cursor while typing */
+.mb-cf-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  background: #c8502e;
+  animation: mb-cf-blink 0.8s steps(1) infinite;
+}
+
+/* mood cards fade in one after another */
+.mb-cf-mood-grid > * {
+  animation: mb-cf-in 0.4s ease-out backwards;
+}
+.mb-cf-mood-grid > *:nth-child(1) { animation-delay: 0.05s; }
+.mb-cf-mood-grid > *:nth-child(2) { animation-delay: 0.15s; }
+.mb-cf-mood-grid > *:nth-child(3) { animation-delay: 0.25s; }
+.mb-cf-mood-grid > *:nth-child(4) { animation-delay: 0.35s; }
+.mb-cf-mood-grid > *:nth-child(5) { animation-delay: 0.45s; }
+
+/* budget chips and result card fade in */
+.mb-cf-fade {
+  animation: mb-cf-in 0.4s ease-out;
+}
+
+@keyframes mb-cf-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes mb-cf-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+@keyframes mb-cf-blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mb-cf-bot, .mb-cf-dots i, .mb-cf-cursor,
+  .mb-cf-mood-grid > *, .mb-cf-fade { animation: none; }
+}
+/* ---------- Button press feedback ---------- */
+.mb-cf-add-combo,
+.mb-cf-restart {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.12s ease, box-shadow 0.2s ease, background-color 0.25s ease;
+}
+
+.mb-cf-add-combo:hover,
+.mb-cf-restart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* the "pressed in" feel */
+.mb-cf-add-combo:active,
+.mb-cf-restart:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.mb-cf-add-combo:focus-visible,
+.mb-cf-restart:focus-visible {
+  outline: 3px solid #d4a72c;
+  outline-offset: 3px;
+}
+
+/* success state after adding */
+.mb-cf-add-combo--done {
+  background: #2f7a4b;
+  animation: mb-cf-pop 0.35s ease-out;
+}
+
+.mb-cf-view-order {
+  display: block;
+  text-align: center;
+  margin: 10px 0 4px;
+  color: #2a1a17;
+  font-weight: 600;
+  text-decoration: underline;
+  animation: mb-cf-in 0.3s ease-out;
+}
+
+@keyframes mb-cf-pop {
+  0%   { transform: scale(0.96); }
+  50%  { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}

@@ -1,0 +1,173 @@
+:root {
+  --mb-espresso: #2b1b12;
+  --mb-espresso-soft: #3d2a1c;
+  --mb-cream: #f5ede1;
+  --mb-cream-dim: #ece1d0;
+  --mb-brick: #c1502e;
+  --mb-brick-deep: #9c3d21;
+  --mb-taxi: #c9a227;
+  --mb-violet: #7c3ab2;
+  --mb-violet-deep: #522480;
+  --mb-teal: #1c8c70;
+  --mb-pink: #e05a68;
+  --mb-copper: var(--mb-brick);
+  --mb-gold: var(--mb-taxi);
+
+  --mb-display: 'Oswald', sans-serif;
+  --mb-body: 'Manrope', system-ui, sans-serif;
+  --mb-wordmark: 'Abril Fatface', serif;
+  --mb-tagline: 'Playfair Display', serif;
+}
+.mb-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: rgba(43, 27, 18, 0.97);
+  gap: 16px;
+}
+.mb-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mb-brand-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--mb-taxi);
+  color: var(--mb-espresso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.mb-brand-word {
+  font-family: var(--mb-wordmark);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: #fff;
+  font-size: 1.15rem;
+  white-space: nowrap;
+}
+.mb-brand-word em {
+  font-style: normal;
+  color: var(--mb-taxi);
+}
+.mb-back-btn {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #efe3cb;
+  white-space: nowrap;
+}
+.mb-back-btn:hover {
+  text-decoration: underline;
+}
+.mb-header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.mb-header-account {
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #efe3cb;
+}
+.mb-header-account:hover {
+  text-decoration: underline;
+}
+.mb-header-cart {
+  position: relative;
+  font-size: 1.1rem;
+  color: #efe3cb;
+}
+#bean-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.falling-bean {
+  position: absolute;
+  top: -8%;
+  opacity: 0.24;
+  animation: bean-fall linear infinite;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.4));
+}
+.falling-bean.far {
+  opacity: 0.13;
+  filter: blur(1.5px) drop-shadow(0 2px 3px rgba(0, 0, 0, 0.28));
+}
+.falling-bean svg {
+  width: 100%;
+  height: 100%;
+}
+@keyframes bean-fall {
+  to {
+    transform: translateY(120vh) rotate(340deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .falling-bean {
+    animation: none;
+    display: none;
+  }
+}
+.mb-bell {
+  position: relative;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.mb-bell-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: #c8512f;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mb-notif-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 24px 16px 100px;
+}
+
+.mb-notif-item {
+  background: #fff;
+  border: 1px solid #e6d9c8;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  opacity: 0.65;
+}
+
+.mb-notif-item.unread {
+  opacity: 1;
+  border-left: 5px solid #c8512f;
+  background: #fff7f0;
+}
+
+.mb-notif-item p {
+  margin: 6px 0;
+}
+
+.mb-notif-item small {
+  color: #8a7562;
+}

@@ -1,0 +1,260 @@
+/* ---------- Page shell ---------- */
+.mb-rw {
+  min-height: 100vh;
+  padding: 32px 20px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--mb-cream, #f6ead8);
+  background:
+    radial-gradient(90% 60% at 50% 0%, rgba(110, 60, 160, 0.45), transparent 70%),
+    var(--mb-espresso, #2a1712);
+  font-family: 'Manrope', system-ui, sans-serif;
+}
+
+.mb-rw-head {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.mb-rw-head h1 {
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 22px rgba(255, 190, 120, 0.35);
+}
+
+.mb-rw-head p {
+  margin: 6px 0 0;
+  opacity: 0.7;
+}
+
+.mb-rw-msg {
+  margin-top: 20vh;
+  opacity: 0.8;
+}
+
+/* ---------- Card (real bank-card proportions) ---------- */
+.mb-rw-card {
+  width: min(400px, 92vw);
+  aspect-ratio: 1.586 / 1;
+  perspective: 1200px;
+  cursor: pointer;
+  border-radius: 20px;
+  outline: none;
+  filter: drop-shadow(0 22px 30px rgba(0, 0, 0, 0.45));
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mb-rw-card:focus-visible {
+  outline: 3px solid var(--mb-gold, #e8a33d);
+  outline-offset: 6px;
+}
+
+.mb-rw-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.mb-rw-card.is-flipped .mb-rw-inner {
+  transform: rotateY(180deg);
+}
+
+.mb-rw-face {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* ---------- Tier colours (front) ---------- */
+.mb-rw-card.tier-bronze { --rw-ink: #fbeedd; --rw-dot: #e8a33d; }
+.mb-rw-card.tier-silver { --rw-ink: #141821; --rw-dot: #2c3342; }
+.mb-rw-card.tier-gold   { --rw-ink: #2a1712; --rw-dot: #2a1712; }
+
+.tier-bronze .mb-rw-front {
+  background: linear-gradient(135deg, #3a1f14 0%, #7a4021 50%, #c0642f 100%);
+}
+
+.tier-silver .mb-rw-front {
+  background: linear-gradient(135deg, #a9b2c3 0%, #e2e7f0 50%, #8b95a9 100%);
+}
+
+.tier-gold .mb-rw-front {
+  background: linear-gradient(135deg, #f3d874 0%, #c9a227 50%, #8a6412 100%);
+}
+
+/* soft glossy sheen across the front */
+.mb-rw-front::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0.28) 0%, transparent 38%);
+  pointer-events: none;
+}
+
+/* ---------- Front layout ---------- */
+.mb-rw-front {
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--rw-ink);
+}
+
+.mb-rw-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mb-rw-brand {
+  font-family: 'Abril Fatface', 'Playfair Display', serif;
+  font-size: 1.05rem;
+}
+
+.mb-rw-tier {
+  padding: 3px 12px;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mb-rw-chip {
+  width: 46px;
+  height: 34px;
+  border-radius: 7px;
+  background:
+    linear-gradient(90deg, transparent 32%, rgba(0, 0, 0, 0.25) 33% 35%, transparent 36% 64%, rgba(0, 0, 0, 0.25) 65% 67%, transparent 68%),
+    linear-gradient(0deg, transparent 46%, rgba(0, 0, 0, 0.25) 47% 53%, transparent 54%),
+    linear-gradient(135deg, #f5dc8a, #c69a2b);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.mb-rw-stamps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mb-rw-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--rw-ink);
+  box-sizing: border-box;
+  opacity: 0.85;
+  transition: transform 0.2s ease;
+}
+
+.mb-rw-dot.filled {
+  background: var(--rw-dot);
+  border-color: var(--rw-dot);
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+}
+
+.mb-rw-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.mb-rw-bottom small {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.mb-rw-bottom strong {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mb-rw-count {
+  text-align: right;
+}
+
+/* ---------- Back ---------- */
+.mb-rw-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(150deg, #1c0f0b 0%, #3a2150 100%);
+  color: var(--mb-cream, #f6ead8);
+}
+
+.mb-rw-stripe {
+  height: 18%;
+  margin-top: 6%;
+  background: #0b0605;
+  box-shadow: inset 0 -2px 6px rgba(255, 255, 255, 0.06);
+}
+
+.mb-rw-details {
+  margin: auto 20px 20px;
+  padding: 12px 16px;
+  display: grid;
+  gap: 8px;
+  border-radius: 12px;
+  background: rgba(246, 234, 216, 0.94);
+  color: #2a1712;
+}
+
+.mb-rw-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+.mb-rw-row span {
+  opacity: 0.7;
+}
+
+.mb-rw-row strong {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Text under the card ---------- */
+.mb-rw-hint {
+  margin: 22px 0 4px;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.mb-rw-next {
+  margin: 0;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+@media (max-width: 420px) {
+  .mb-rw-front { padding: 14px 16px; }
+  .mb-rw-dot { width: 17px; height: 17px; }
+  .mb-rw-stamps { gap: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mb-rw-inner { transition: none; }
+}
