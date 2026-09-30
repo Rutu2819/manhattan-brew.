@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Outlet, Link, useLocation } from 'react-router-dom'
-import NotificationBell from './Components/NotificationBell'
+import NotificationBell from './components/NotificationBell'
 
 export default function Layout() {
   const location = useLocation()
