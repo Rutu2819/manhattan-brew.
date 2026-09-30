@@ -1,6 +1,6 @@
 import express from 'express'
 import { supabase } from '../config/supabaseClient.js'
-import { combos } from '../../src/Data/comboData.js'
+import { combos } from '../../src/Data/ComboData.js'
 import jwt from 'jsonwebtoken'
 
 const router = express.Router()

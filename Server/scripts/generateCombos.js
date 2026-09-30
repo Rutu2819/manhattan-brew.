@@ -1,5 +1,5 @@
 import { supabase } from '../config/supabaseClient.js'
-import { combos, moods, budgetRanges } from '../../src/Data/comboData.js'
+import { combos, moods, budgetRanges } from '../../src/Data/ComboData.js'
 import dotenv from 'dotenv'
 dotenv.config()
 function sleep(ms) {

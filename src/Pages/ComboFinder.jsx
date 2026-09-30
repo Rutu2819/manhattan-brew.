@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { combos, moods, budgetRanges } from '../Data/comboData'
+import { combos, moods, budgetRanges } from '../Data/ComboData'
 import './ComboFinder.css'
 import { allItems } from '../Data/menuData.js'
 import { useCart } from '../context/CartContext.jsx'
